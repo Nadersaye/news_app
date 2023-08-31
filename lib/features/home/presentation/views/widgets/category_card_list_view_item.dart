@@ -1,26 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/core/utils/styles.dart';
 
-class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(30.0),
-      child: Column(
-        children: [CategoryCardListViewItem()],
-      ),
-    );
-  }
-}
+import '../../../../../core/utils/styles.dart';
 
 class CategoryCardListViewItem extends StatelessWidget {
   const CategoryCardListViewItem({
     super.key,
+    required this.imageUrl,
+    required this.categoryName,
   });
-
+  final String imageUrl;
+  final String categoryName;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,11 +20,11 @@ class CategoryCardListViewItem extends StatelessWidget {
         width: 160.w,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.r),
-            image: const DecorationImage(
-                image: AssetImage('assets/technology.jpeg'), fit: BoxFit.fill)),
+            image:
+                DecorationImage(image: AssetImage(imageUrl), fit: BoxFit.fill)),
         child: Center(
           child: Text(
-            'data',
+            categoryName,
             style: Styles.stylewhite16,
           ),
         ),
