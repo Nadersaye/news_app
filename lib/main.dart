@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   runApp(const NewsApp());
@@ -9,6 +10,10 @@ class NewsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
+    return const ScreenUtilInit(
+        designSize: Size(360, 840),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        child: MaterialApp());
   }
 }
